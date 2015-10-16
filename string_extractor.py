@@ -1,15 +1,10 @@
-'''
-shanesully
-
-XML string extractor
-'''
+__author__ = 'shanesully'
 
 import sys
 from BeautifulSoup import BeautifulStoneSoup
 
 
-def print_usage():
-    """Print commandline usage and exit"""
+def display_usage():
     print "\nUsage:\n\n\t$ python {} $OPTIONS $XML_FILES", \
           "\nOptions:\n", \
           "\t-k: Combine n strings.xml file(s) into a single xml language file\n", \
@@ -17,14 +12,14 @@ def print_usage():
 
 
 def extract_strings(files):
-    """Extract all strings from an strings.xml file"""
+    '''Extract all strings'''
     for given_file in files:
         file_format = str(given_file).split('.')[1]
 
         if file_format == 'xml':
             with open(given_file) as xml_source_file:
                 # Strip old extensions and create new file name
-                strings_file_name = str(xml_source_file.name).split('.')[0] + "_strings.txt"
+                strings_file_name = str(xml_source_file.name).split('.')[0] + '_strings.txt'
 
                 with open(strings_file_name, 'w+') as strings_file:
                     soup = BeautifulStoneSoup(xml_source_file)
@@ -42,7 +37,7 @@ def extract_strings(files):
 
 
 def create_language_dict(files):
-    """Combine n strings.xml file(s) into a single xml language file"""
+    '''Combine n strings.xml file(s) into a single xml language file'''
     strings = {}
 
     for given_file in files:
@@ -55,7 +50,7 @@ def create_language_dict(files):
                 else:
                     strings[str(tag['name'])] = [tag.text]
 
-    with open("language_dict.xml", "w+") as language_dict_file:
+    with open('language_dict.xml', 'w+') as language_dict_file:
         xml_header = '<?xml version="1.0" encoding="UTF-8"?>'
 
         language_dict_file.write('{}\n'.format(xml_header))
@@ -76,13 +71,13 @@ def main():
     elif sys.argv[1] == '-k':
         create_language_dict(sys.argv[2:])
     else:
-       print_usage() 
+       display_usage() 
 
 
 if __name__ == '__main__':
 
     if len(sys.argv) <= 1:
-        print_usage()
+        display_usage()
         sys.exit()
 
     main()
