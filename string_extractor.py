@@ -49,21 +49,21 @@ def combine_files(files):
                 else:
                     strings[str(tag['name'])] = [tag.text]
 
-    with open('language_dict.xml', 'w+') as language_dict_file:
+    with open('combined_strings.xml', 'w+') as combined_strings_file:
         xml_header = '<?xml version="1.0" encoding="UTF-8"?>\n<resources>'
         xml_footer = '</resources>'
 
-        language_dict_file.write('{}\n'.format(xml_header))
+        combined_strings_file.write('{}\n'.format(xml_header))
 
         for key, value_list in strings.iteritems():
-            language_dict_file.write("\t<key>{}</key>\n".format(key))
+            combined_strings_file.write("\t<key>{}</key>\n".format(key))
 
             for value in value_list:
-                language_dict_file.write("\t<string>{}</string>\n".format(value.encode('utf8')))
+                combined_strings_file.write("\t<string>{}</string>\n".format(value.encode('utf8')))
         
-        language_dict_file.write('{}\n'.format(xml_footer))
+        combined_strings_file.write('{}\n'.format(xml_footer))
 
-        print "\n{} file created\n".format(language_dict_file.name)
+        print "\n{} file created\n".format(combined_strings_file.name)
 
 
 def main():
