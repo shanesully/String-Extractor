@@ -50,7 +50,8 @@ def combine_files(files):
                     strings[str(tag['name'])] = [tag.text]
 
     with open('language_dict.xml', 'w+') as language_dict_file:
-        xml_header = '<?xml version="1.0" encoding="UTF-8"?>'
+        xml_header = '<?xml version="1.0" encoding="UTF-8"?>\n<resources>'
+        xml_footer = '</resources>'
 
         language_dict_file.write('{}\n'.format(xml_header))
 
@@ -59,6 +60,8 @@ def combine_files(files):
 
             for value in value_list:
                 language_dict_file.write("<string>{}</string>\n".format(value.encode('utf8')))
+        
+        language_dict_file.write('{}\n'.format(xml_footer))
 
         print "\n{} file created\n".format(language_dict_file.name)
 
