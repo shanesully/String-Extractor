@@ -1,3 +1,3 @@
 # string-extractor
-Extract and combine strings from strings.xml files
+Extract and combine strings from xml files
 
