@@ -56,10 +56,10 @@ def combine_files(files):
         language_dict_file.write('{}\n'.format(xml_header))
 
         for key, value_list in strings.iteritems():
-            language_dict_file.write("<key>{}</key>\n".format(key))
+            language_dict_file.write("\t<key>{}</key>\n".format(key))
 
             for value in value_list:
-                language_dict_file.write("<string>{}</string>\n".format(value.encode('utf8')))
+                language_dict_file.write("\t<string>{}</string>\n".format(value.encode('utf8')))
         
         language_dict_file.write('{}\n'.format(xml_footer))
 
