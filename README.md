@@ -1,3 +1,3 @@
-# string-extractor
-Extract and combine strings from xml files
+# string_extractor
+Combine and extract strings from xml files
 
