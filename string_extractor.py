@@ -7,8 +7,8 @@ from BeautifulSoup import BeautifulStoneSoup
 def display_usage():
     print "\nUsage:\n\n\t$ python {} $OPTIONS $XML_FILES", \
           "\nOptions:\n", \
-          "\t-k: Combine n strings.xml file(s) into a single xml language file\n", \
-          "\t-s: Extract strings from a strings.xml file\n".format(sys.argv[0])
+          "\t-c: Combine n strings.xml file(s) into a single xml language file\n", \
+          "\t-e: Extract strings from a strings.xml file\n".format(sys.argv[0])
 
 
 def extract_strings(files):
@@ -64,9 +64,9 @@ def combine_files(files):
 
 
 def main():
-    if sys.argv[1] == '-s':
+    if sys.argv[1] == '-e':
         extract_strings(sys.argv[2:])
-    elif sys.argv[1] == '-k':
+    elif sys.argv[1] == '-c':
         combine_files(sys.argv[2:])
     else:
        display_usage() 
