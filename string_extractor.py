@@ -12,13 +12,12 @@ def display_usage():
 
 
 def extract_strings(files):
-    '''Extract all strings'''
     for given_file in files:
         file_format = str(given_file).split('.')[1]
 
         if file_format == 'xml':
             with open(given_file) as xml_source_file:
-                # Strip old extensions and create new file name
+                # New file name
                 strings_file_name = str(xml_source_file.name).split('.')[0] + '_strings.txt'
 
                 with open(strings_file_name, 'w+') as strings_file:
@@ -36,8 +35,8 @@ def extract_strings(files):
             print "Ignoring {} as it is in .{} format and not .xml".format(given_file, str(given_file).split('.')[1])
 
 
-def create_language_dict(files):
-    '''Combine n strings.xml file(s) into a single xml language file'''
+def combine_files(files):
+    '''Combine values from multiple files'''
     strings = {}
 
     for given_file in files:
@@ -65,11 +64,10 @@ def create_language_dict(files):
 
 
 def main():
-
     if sys.argv[1] == '-s':
         extract_strings(sys.argv[2:])
     elif sys.argv[1] == '-k':
-        create_language_dict(sys.argv[2:])
+        combine_files(sys.argv[2:])
     else:
        display_usage() 
 
