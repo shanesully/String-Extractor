@@ -5,7 +5,7 @@ from BeautifulSoup import BeautifulStoneSoup
 
 
 def display_usage():
-    print "\nUsage:\n\n\t$ python {} $OPTIONS $XML_FILES", \
+    print "\nUsage:\n\n\t$ python {} $OPTIONS $XML_FILES\n", \
           "\nOptions:\n", \
           "\t-c: Combine n strings.xml file(s) into a single xml language file\n", \
           "\t-e: Extract strings from a strings.xml file\n".format(sys.argv[0])
