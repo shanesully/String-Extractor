@@ -1,3 +1,2 @@
-# string_extractor
-Combine and extract strings from xml files
+Combine and extract strings from xml translation files
 
