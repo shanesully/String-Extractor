@@ -1,2 +1,2 @@
-Combine and extract strings from xml translation files
+Combine and extract strings from XML translation files
 
